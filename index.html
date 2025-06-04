@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Feedback</title>
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0">
+    <meta name="description" content="Página de feedback para coletar opiniões dos usuários.">
+    <meta name="keywords" content="feedback, opiniões, usuários, formulário">
+
+    <style>
+        body { font-family: Arial; max-width: 600px; margin: auto; padding: 2rem; }
+        form { margin-bottom: 2rem; }
+        textarea, input { width: 100%; padding: 0.5rem; margin-top: 0.5rem; }
+        .feedback { border-bottom: 1px solid #ccc; margin-bottom: 1rem; padding-bottom: 1rem; }
+    </style>
+</head>
+
+<body>
+    <h1>Deixe seu Feedback</h1>
+    <form method="post">
+        <label>Nome:</label>
+        <input type="text" name="nome" placeholder="Seu nome">
+        <textarea name="mensagem" placeholder="Sua mensagem"></textarea>
+        <button type="submit">Enviar</button>
+    </form>
+
+    <h2>Feedbacks Recebidos</h2>
+    {% for nome, mensagem in feedbacks %}
+    <div class="feedback">
+        <strong>{{ nome }}</strong><br>
+        <p>{{ mensagem }}</p>
+    </div>
+    {% endfor %}
+</body>
+
+</html>
